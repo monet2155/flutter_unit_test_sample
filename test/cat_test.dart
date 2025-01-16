@@ -16,5 +16,17 @@ void main() {
 
       verify(cat.sound());
     });
+
+    test('mockito cat when', () {
+      // Arrange
+      var cat = MockCat();
+      when(cat.sound()).thenReturn("Purr");
+
+      // Act
+      final result = cat.sound();
+
+      // Assert
+      expect(result, "Purr");
+    });
   });
 }
