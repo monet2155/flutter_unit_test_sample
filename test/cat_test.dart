@@ -28,5 +28,20 @@ void main() {
       // Assert
       expect(result, "Purr");
     });
+
+    test('mockito cat thenAnswer', () {
+      // Arrange
+      var cat = MockCat();
+      var responses = ["Purr", "Meow"];
+      when(cat.sound()).thenAnswer((_) => responses.removeAt(0));
+
+      // Act
+      final result1 = cat.sound();
+      final result2 = cat.sound();
+
+      // Assert
+      expect(result1, "Purr");
+      expect(result2, "Meow");
+    });
   });
 }
