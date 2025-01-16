@@ -43,5 +43,13 @@ void main() {
       expect(result1, "Purr");
       expect(result2, "Meow");
     });
+
+    test('mockito cat verify', () {
+      var cat = MockCat();
+
+      cat.sound();
+
+      verify(cat.sound()).called(1);
+    });
   });
 }
